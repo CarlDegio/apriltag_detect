@@ -1,0 +1,13 @@
+# Clion
+.idea/
+cmake-build-debug/
+cmake-build-release/
+
+# Xmake cache
+.xmake/
+build/
+
+# MacOS Cache
+.DS_Store
+
+
