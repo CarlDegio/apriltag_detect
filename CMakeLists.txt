@@ -210,3 +210,221 @@ target_sources(calibrate PRIVATE
     src/calibrate.cpp
 )
 
+# target
+add_executable(zed_apriltag "")
+set_target_properties(zed_apriltag PROPERTIES OUTPUT_NAME "zed_apriltag")
+set_target_properties(zed_apriltag PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/windows/x64/release")
+target_include_directories(zed_apriltag PRIVATE
+    C:/Users/86183/AppData/Local/.xmake/packages/o/opencv/4.6.0/572286a4040048309c8b88505b025d08/include
+    build/.packages/a/april_src/latest/8574311f4b544fa89a3d8c3ee79d1929/include
+    "C:/Program Files (x86)/ZED SDK/include"
+    "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.7/include"
+)
+target_compile_options(zed_apriltag PRIVATE
+    $<$<COMPILE_LANGUAGE:C>:-DNDEBUG>
+    $<$<COMPILE_LANGUAGE:CXX>:-DNDEBUG>
+)
+if(MSVC)
+    target_compile_options(zed_apriltag PRIVATE $<$<CONFIG:Release>:-Ox -fp:fast>)
+else()
+    target_compile_options(zed_apriltag PRIVATE -O3)
+endif()
+if(MSVC)
+else()
+    target_compile_options(zed_apriltag PRIVATE -fvisibility=hidden)
+endif()
+if(MSVC)
+    set_property(TARGET zed_apriltag PROPERTY
+        MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
+target_link_libraries(zed_apriltag PRIVATE
+    opencv_phase_unwrapping460
+    opencv_surface_matching460
+    opencv_saliency460
+    opencv_wechat_qrcode460
+    opencv_mcc460
+    opencv_face460
+    opencv_img_hash460
+    opencv_videostab460
+    opencv_structured_light460
+    opencv_intensity_transform460
+    opencv_ccalib460
+    opencv_line_descriptor460
+    opencv_stereo460
+    opencv_dnn_objdetect460
+    opencv_dnn_superres460
+    opencv_fuzzy460
+    opencv_hfs460
+    opencv_rapid460
+    opencv_bgsegm460
+    opencv_bioinspired460
+    opencv_rgbd460
+    opencv_dpm460
+    opencv_aruco460
+    opencv_reg460
+    opencv_tracking460
+    opencv_datasets460
+    opencv_xfeatures2d460
+    opencv_shape460
+    opencv_barcode460
+    opencv_superres460
+    opencv_plot460
+    opencv_quality460
+    opencv_text460
+    opencv_optflow460
+    opencv_ximgproc460
+    opencv_xobjdetect460
+    opencv_xphoto460
+    opencv_stitching460
+    opencv_ml460
+    opencv_photo460
+    opencv_gapi460
+    opencv_objdetect460
+    opencv_highgui460
+    opencv_videoio460
+    opencv_video460
+    opencv_calib3d460
+    opencv_dnn460
+    opencv_features2d460
+    opencv_flann460
+    opencv_imgcodecs460
+    opencv_imgproc460
+    opencv_core460
+    ade
+    libjpeg-turbo
+    libpng
+    libprotobuf
+    libtiff
+    libwebp
+    quirc
+    zlib
+    apriltag
+    sl_zed64
+    cudart_static
+    gdi32
+    user32
+    glu32
+    opengl32
+    advapi32
+    comdlg32
+    ws2_32
+)
+target_link_directories(zed_apriltag PRIVATE
+    C:/Users/86183/AppData/Local/.xmake/packages/o/opencv/4.6.0/572286a4040048309c8b88505b025d08/x64/vc17/staticlib
+    build/.packages/a/april_src/latest/8574311f4b544fa89a3d8c3ee79d1929/lib
+    "C:/Program Files (x86)/ZED SDK/lib"
+    "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.7/lib/x64"
+)
+target_sources(zed_apriltag PRIVATE
+    src/zed_apriltag.cpp
+)
+
+# target
+add_executable(zed_test "")
+set_target_properties(zed_test PROPERTIES OUTPUT_NAME "zed_test")
+set_target_properties(zed_test PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/windows/x64/release")
+target_include_directories(zed_test PRIVATE
+    C:/Users/86183/AppData/Local/.xmake/packages/o/opencv/4.6.0/572286a4040048309c8b88505b025d08/include
+    build/.packages/a/april_src/latest/8574311f4b544fa89a3d8c3ee79d1929/include
+    "C:/Program Files (x86)/ZED SDK/include"
+    "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.7/include"
+)
+target_compile_options(zed_test PRIVATE
+    $<$<COMPILE_LANGUAGE:C>:-DNDEBUG>
+    $<$<COMPILE_LANGUAGE:CXX>:-DNDEBUG>
+)
+if(MSVC)
+    target_compile_options(zed_test PRIVATE $<$<CONFIG:Release>:-Ox -fp:fast>)
+else()
+    target_compile_options(zed_test PRIVATE -O3)
+endif()
+if(MSVC)
+else()
+    target_compile_options(zed_test PRIVATE -fvisibility=hidden)
+endif()
+if(MSVC)
+    set_property(TARGET zed_test PROPERTY
+        MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
+target_link_libraries(zed_test PRIVATE
+    opencv_phase_unwrapping460
+    opencv_surface_matching460
+    opencv_saliency460
+    opencv_wechat_qrcode460
+    opencv_mcc460
+    opencv_face460
+    opencv_img_hash460
+    opencv_videostab460
+    opencv_structured_light460
+    opencv_intensity_transform460
+    opencv_ccalib460
+    opencv_line_descriptor460
+    opencv_stereo460
+    opencv_dnn_objdetect460
+    opencv_dnn_superres460
+    opencv_fuzzy460
+    opencv_hfs460
+    opencv_rapid460
+    opencv_bgsegm460
+    opencv_bioinspired460
+    opencv_rgbd460
+    opencv_dpm460
+    opencv_aruco460
+    opencv_reg460
+    opencv_tracking460
+    opencv_datasets460
+    opencv_xfeatures2d460
+    opencv_shape460
+    opencv_barcode460
+    opencv_superres460
+    opencv_plot460
+    opencv_quality460
+    opencv_text460
+    opencv_optflow460
+    opencv_ximgproc460
+    opencv_xobjdetect460
+    opencv_xphoto460
+    opencv_stitching460
+    opencv_ml460
+    opencv_photo460
+    opencv_gapi460
+    opencv_objdetect460
+    opencv_highgui460
+    opencv_videoio460
+    opencv_video460
+    opencv_calib3d460
+    opencv_dnn460
+    opencv_features2d460
+    opencv_flann460
+    opencv_imgcodecs460
+    opencv_imgproc460
+    opencv_core460
+    ade
+    libjpeg-turbo
+    libpng
+    libprotobuf
+    libtiff
+    libwebp
+    quirc
+    zlib
+    apriltag
+    sl_zed64
+    cudart_static
+    gdi32
+    user32
+    glu32
+    opengl32
+    advapi32
+    comdlg32
+    ws2_32
+)
+target_link_directories(zed_test PRIVATE
+    C:/Users/86183/AppData/Local/.xmake/packages/o/opencv/4.6.0/572286a4040048309c8b88505b025d08/x64/vc17/staticlib
+    build/.packages/a/april_src/latest/8574311f4b544fa89a3d8c3ee79d1929/lib
+    "C:/Program Files (x86)/ZED SDK/lib"
+    "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.7/lib/x64"
+)
+target_sources(zed_test PRIVATE
+    src/zed_test.cpp
+)
+

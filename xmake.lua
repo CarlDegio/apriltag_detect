@@ -14,6 +14,8 @@ package_end()
 
 add_requires("opencv")
 add_requires("april_src")
+add_requires("cmake::ZED 3",{alias = "zed", system = true})
+add_requires("cmake::CUDA $(ZED_CUDA_VERSION)",{alias = "cuda", system = true})
 
 target("calibrate")
     set_kind("binary")
@@ -25,6 +27,22 @@ target("apritag")
     add_files("src/main.cpp")
 	add_packages("opencv")
 	add_packages("april_src")
+
+target("zed_test")
+    set_kind("binary")
+    add_files("src/zed_test.cpp")
+    add_packages("opencv")
+    add_packages("april_src")
+    add_packages("zed")
+    add_packages("cuda")
+
+target("zed_apriltag")
+    set_kind("binary")
+    add_files("src/zed_apriltag.cpp")
+    add_packages("april_src")
+    add_packages("opencv")
+    add_packages("zed")
+    add_packages("cuda")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
